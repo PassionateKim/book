@@ -11,3 +11,4 @@
   * [6.2 변수와 메서드](https://abcdefgh123123.tistory.com/398)
   * [6.3 가변인자와 오버로딩](https://abcdefgh123123.tistory.com/399)
   * [6.4 생성자](https://abcdefgh123123.tistory.com/400)
+  * [6.5 변수의 초기화](https://abcdefgh123123.tistory.com/401)
