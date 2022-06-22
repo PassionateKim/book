@@ -8,3 +8,4 @@
   * [5. 배열](https://abcdefgh123123.tistory.com/396)
 * **챕터6. 객체지향 프로그래밍**
   * [6.1 클래스와 객체](https://abcdefgh123123.tistory.com/397)
+  * [6.2 변수와 메서드](https://abcdefgh123123.tistory.com/398)
