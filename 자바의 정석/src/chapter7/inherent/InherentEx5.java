@@ -3,6 +3,7 @@ package chapter7.inherent;
 public class InherentEx5 {
     public static void main(String[] args) {
         Pointer3d pointer3d = new Pointer3d(1, 2, 3);
+
     }
 }
 class Pointer {
