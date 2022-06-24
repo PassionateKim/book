@@ -17,3 +17,4 @@
   * [7.2 오버로딩과 오버라이딩](https://abcdefgh123123.tistory.com/403)
   * [7.3 super](https://abcdefgh123123.tistory.com/404)
   * [7.4 접근제어자](https://abcdefgh123123.tistory.com/406)
+  * [7.5 다형성](https://abcdefgh123123.tistory.com/407)
