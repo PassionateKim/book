@@ -19,3 +19,6 @@
   * [7.4 접근제어자](https://abcdefgh123123.tistory.com/406)
   * [7.5 다형성](https://abcdefgh123123.tistory.com/407)
   * [7.6 추상클래스와 인터페이스](https://abcdefgh123123.tistory.com/408)
+* **챕터9. java.lang패키지와 유용한 클래스**
+  * [9.1 equals](https://abcdefgh123123.tistory.com/409)
+  * [9.2 String 클래스](https://abcdefgh123123.tistory.com/410)
