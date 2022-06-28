@@ -2,15 +2,13 @@ package chapter7.modifier.package2;
 
 import chapter7.modifier.package1.Modifier;
 
-// 다른 패키지의 다른 클래스에서의 접근
 public class AnotherPackageClass {
     public static void main(String[] args) {
-        Modifier modifier = new Modifier();
-        // 멤버 변수
-        System.out.println(modifier.publicMember);
-//        System.out.println(modifier.protectedMember);
-//        System.out.println(modifier.defaultMember);
-//        System.out.println(modifier.privateMember);
+
+        ChildInAnotherPackageClass childInAnotherPackageClass = new ChildInAnotherPackageClass();
+        System.out.println(childInAnotherPackageClass.publicMember);
+        // 왜 protected 접근이 안되냐?
+
     }
 }
 
