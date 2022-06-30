@@ -9,15 +9,15 @@ import java.util.*;
  */
 public class ArrayListEx2 {
     public static void main(String[] args) {
-        MyVector myVector = new MyVector();
+        MyVector myVector = new MyVector(10);
 
         System.out.println("myVector.capacity = " + myVector.capacity); // 10
         System.out.println("myVector.size = " + myVector.size); // 10
 
 
-        for (int i = 0; i < myVector.size; i++) {
-            myVector.data[i] = i;
-        }
+//        for (int i = 0; i < 10; i++) {
+//            myVector.data[i] = i;
+//        }
         // contains
         System.out.println(myVector.contains(3));
 
@@ -27,12 +27,18 @@ public class ArrayListEx2 {
             System.out.println("오류");
         }
 
+        for (int i = 1; i < myVector.size(); i++) {
+            System.out.println(myVector.get((i)));
+        }
         // add
         myVector.add(3);
+        myVector.add(4);
+        myVector.add(5);
 
-        for (int i = 0; i < myVector.size; i++) {
-            System.out.println("myVector.data[i] = " + myVector.data[i]);
+        for (int i = 0; i < myVector.size(); i++) {
+            System.out.println("myVector = " + myVector.get(i));
         }
+
 
     }
 }
@@ -52,7 +58,6 @@ class MyVector implements List {
         }
         this.capacity = capacity;
         data = new Object[capacity];
-        size = data.length; // 사이즈 초기화
     }
 
     @Override
@@ -88,11 +93,26 @@ class MyVector implements List {
         return new Object[0];
     }
 
-    @Override
-    public boolean add(Object o) {
-        Object[] tmp = new Object[capacity+1];
+    public void ensureCapacity(int minCapacity) {
+        if (minCapacity - data.length > 0) {
+            setCapacity(minCapacity);
+        }
+    }
+
+    private void setCapacity(int capacity) {
+        if (this.capacity == capacity) {
+            return;
+        }
+        Object[] tmp = new Object[capacity];
         System.arraycopy(data, 0, tmp, 0, size);
         data = tmp;
+        this.capacity = capacity;
+    }
+
+    // size랑 length랑 다른 거더라...
+    @Override
+    public boolean add(Object o) {
+        ensureCapacity(size+1);
         data[size++] = o;
         return true;
     }
@@ -119,7 +139,7 @@ class MyVector implements List {
 
     @Override
     public Object get(int index) {
-        return null;
+        return data[index];
     }
 
     @Override
