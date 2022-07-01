@@ -26,4 +26,5 @@
   * [10.1 LocalDate, LocalTime](https://abcdefgh123123.tistory.com/411)
 * **챕터11. 컬렉션**
   * [11.1 HashMap](https://abcdefgh123123.tistory.com/413)
+  * [11.2 Generics](https://abcdefgh123123.tistory.com/414)
 
