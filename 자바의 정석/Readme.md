@@ -26,8 +26,12 @@
   * [10.1 LocalDate, LocalTime](https://abcdefgh123123.tistory.com/411)
 * **챕터11. 컬렉션**
   * [11.1 HashMap](https://abcdefgh123123.tistory.com/413)
-* **챕터12. 제네릭스, 열거형, 어노테이션**
+`* **챕터12. 제네릭스, 열거형, 어노테이션**
   * [12.1 Generics](https://abcdefgh123123.tistory.com/414)
   * [12.2 열거형(Enums)](https://abcdefgh123123.tistory.com/415)
   * [12.3 어노테이션(Annotation)](https://abcdefgh123123.tistory.com/416)
+* **챕터13. 쓰레드**
+  * [13.1 Thread](https://abcdefgh123123.tistory.com/417)
 
+
+`
