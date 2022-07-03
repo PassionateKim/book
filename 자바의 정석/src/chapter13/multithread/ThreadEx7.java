@@ -34,5 +34,5 @@ class ThreadEx7_1 implements Runnable {
                 Thread.yield(); // 양보 -> OS에 통보
             }//if
         }//while
-    }
+    }//hello
 }
