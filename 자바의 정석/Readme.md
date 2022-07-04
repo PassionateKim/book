@@ -32,6 +32,8 @@
   * [12.3 어노테이션(Annotation)](https://abcdefgh123123.tistory.com/416)
 * **챕터13. 쓰레드**
   * [13.1 Thread](https://abcdefgh123123.tistory.com/417)
+  * [13.2 synchronized, wait, notify](https://abcdefgh123123.tistory.com/418)
+
 
 
 `

@@ -10,7 +10,7 @@ public class SynchronizedEx3 {
         new Thread(new Customer(table, "donut"), "CUSTOMER1").start();
         new Thread(new Customer(table, "burger"), "CUSTOMER2").start();
 
-        Thread.sleep(100);
+        Thread.sleep(5000);
         System.exit(0);
     }
 }
@@ -27,20 +27,13 @@ class Customer implements Runnable {
     @Override
     public void run() {
         while (true) {
-            try {
-                Thread.sleep(10);
-            } catch (InterruptedException e) {}
+            try {Thread.sleep(100);} catch (InterruptedException e) {}
             // catch
             String name = Thread.currentThread().getName();
-            if (eatFood()) {
-                System.out.println(name + " ate a " + food);
-            } else {
-                System.out.println(name + " fail to eat.");
-            }
+
+            table.remove(food);
+            System.out.println(name + " ate a " + food);
         }//while
-    }
-    boolean eatFood() {
-        return table.remove(food);
     }
 }
 
@@ -55,11 +48,9 @@ class Cook implements Runnable {
     public void run() {
         while (true) {
             // 임의의 요리를 선택해 table에 추가
-            int idx = (int) (Math.random() * table.dishNum());
+            int idx = (int) (Math.random() * table.dishNum()); //0 1 2
             table.add(table.dishNames[idx]);
-            try {
-                Thread.sleep(1);
-            } catch (InterruptedException e) {}
+            try {Thread.sleep(10);} catch (InterruptedException e) {}
         }//while
     }//run
 
@@ -71,24 +62,45 @@ class Table {
 
     private ArrayList<String> dishes = new ArrayList<>();
 
-    public void add(String dish) {
+    public synchronized void add(String dish) {
         // 테이블에 음식이 가득 찼으면, 테이블에 음식 추가 X
-        if (dishes.size() > MAX_FOOD) {
-            return;
+        while (dishes.size() >= MAX_FOOD) {
+            String name = Thread.currentThread().getName();
+            System.out.println(name + " is waiting.");
+            try {
+                wait(); // COOK 쓰레드를 기다리게 함
+            } catch (InterruptedException e) {}
         }
         dishes.add(dish);
+        notify(); // 기다리는 CUSTOMER 깨우기
         System.out.println("Dishes: " + dishes);
     }
 
-    public boolean remove(String dishName) {
-        // 지정된 요리와 일치하는 요리를 테이블에서 제거한다.
-        for (int i = 0; i < dishes.size(); i++) {
-            if (dishName.equals(dishes.get(i))) {
-                dishes.remove(i);
-                return true;
+    public void remove(String dishName) {
+        synchronized (this) {
+            String name = Thread.currentThread().getName();
+            while (dishes.size() == 0) {
+                System.out.println(name + " is waiting");
+                try {
+                    wait(); // CUSTOMER 쓰레드 대기
+                    Thread.sleep(500);
+                    }catch (InterruptedException e) {}
             }
-        }
-        return false;
+            while (true) {
+                for (int i = 0;i < dishes.size(); i++) {
+                    if (dishName.equals(dishes.get(i))) {
+                        dishes.remove(i);
+                        notify(); //COOK을 깨우기 위해
+                        return;
+                    }
+                }//for
+                try {
+                    System.out.println(name + " is waiting");
+                    wait(); // 원하는 음식 없으면 CUSTOMER 대기
+                    Thread.sleep(500);
+                } catch (InterruptedException e) {}
+            }//while
+        }//synchronized
     }
     public int dishNum() {
         return dishNames.length;
