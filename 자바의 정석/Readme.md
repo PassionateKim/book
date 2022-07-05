@@ -35,6 +35,7 @@
   * [13.2 synchronized, wait, notify](https://abcdefgh123123.tistory.com/418)
 * **챕터14. 람다식**
   * [14.1 람다식](https://abcdefgh123123.tistory.com/419)
+  * [14.2 함수형 인터페이스 활용](https://abcdefgh123123.tistory.com/420)
 
 
 
