@@ -39,6 +39,7 @@
   * [14.3 Optional](https://abcdefgh123123.tistory.com/422)
   * [14.4 스트림 생성, 변환](https://abcdefgh123123.tistory.com/421)
   * [14.5 스트림 중간 연산, 최종 연산](https://abcdefgh123123.tistory.com/423)
+  * [14.6 스트림 최종 연산 - collect()](https://abcdefgh123123.tistory.com/424)
 
 
 
