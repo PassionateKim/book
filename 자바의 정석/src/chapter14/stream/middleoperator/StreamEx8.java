@@ -1,4 +1,4 @@
-package chapter14.stream;
+package chapter14.stream.middleoperator;
 
 import java.util.Arrays;
 import java.util.List;
